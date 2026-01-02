@@ -1,0 +1,1008 @@
+// ═══════════════════════════════════════════════════════════════════════════════
+// VS CODE KEYBINDINGS.JSON - ULTIMATE VIM CONFIGURATION v3
+// ═══════════════════════════════════════════════════════════════════════════════
+// Reference: https://code.visualstudio.com/docs/getstarted/keybindings
+// All "when" clauses verified against official VS Code documentation
+// ═══════════════════════════════════════════════════════════════════════════════
+[
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🎯 PANE NAVIGATION (Ctrl + HJKL) - Works in ALL Views
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.focusLeftGroup",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.focusRightGroup",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.focusAboveGroup",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.focusBelowGroup",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+
+  // ── Navigate from Terminal ──
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.focusLeftGroup",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.focusRightGroup",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.focusAboveGroup",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.focusBelowGroup",
+    "when": "terminalFocus"
+  },
+
+  // ── Navigate from Sidebar ──
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "sideBarFocus"
+  },
+
+  // ── Toggle Hidden Files in Explorer ──
+  {
+    "key": "ctrl+h",
+    "command": "workbench.files.action.toggleExcludedFiles",
+    "when": "filesExplorerFocus"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 📐 VIEW RESIZING (Ctrl+Shift + Arrows)
+  // Commands: workbench.action.increase/decreaseViewWidth/Height
+  // These are context-aware: resize whatever view is focused
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "key": "ctrl+shift+right",
+    "command": "workbench.action.increaseViewWidth"
+  },
+  {
+    "key": "ctrl+shift+left",
+    "command": "workbench.action.decreaseViewWidth"
+  },
+  {
+    "key": "ctrl+shift+up",
+    "command": "workbench.action.increaseViewHeight"
+  },
+  {
+    "key": "ctrl+shift+down",
+    "command": "workbench.action.decreaseViewHeight"
+  },
+
+  // ── Alternative: Ctrl+Shift+HJKL for Vim users ──
+  {
+    "key": "ctrl+shift+l",
+    "command": "workbench.action.increaseViewWidth"
+  },
+  {
+    "key": "ctrl+shift+h",
+    "command": "workbench.action.decreaseViewWidth"
+  },
+  {
+    "key": "ctrl+shift+k",
+    "command": "workbench.action.increaseViewHeight"
+  },
+  {
+    "key": "ctrl+shift+j",
+    "command": "workbench.action.decreaseViewHeight"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // � VIM TOGGLE
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "key": "alt+v",
+    "command": "toggleVim"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // �📑 TAB/BUFFER NAVIGATION
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "key": "tab",
+    "command": "workbench.action.nextEditorInGroup",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "shift+tab",
+    "command": "workbench.action.previousEditorInGroup",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+
+  // ── Direct Tab Access (Alt + Number) ──
+  {
+    "key": "alt+1",
+    "command": "workbench.action.openEditorAtIndex1"
+  },
+  {
+    "key": "alt+2",
+    "command": "workbench.action.openEditorAtIndex2"
+  },
+  {
+    "key": "alt+3",
+    "command": "workbench.action.openEditorAtIndex3"
+  },
+  {
+    "key": "alt+4",
+    "command": "workbench.action.openEditorAtIndex4"
+  },
+  {
+    "key": "alt+5",
+    "command": "workbench.action.openEditorAtIndex5"
+  },
+  {
+    "key": "alt+6",
+    "command": "workbench.action.openEditorAtIndex6"
+  },
+  {
+    "key": "alt+7",
+    "command": "workbench.action.openEditorAtIndex7"
+  },
+  {
+    "key": "alt+8",
+    "command": "workbench.action.openEditorAtIndex8"
+  },
+  {
+    "key": "alt+9",
+    "command": "workbench.action.openEditorAtIndex9"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 📁 FILE EXPLORER VIM CONTROLS
+  // Verified "when" contexts: listFocus, explorerViewletVisible
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  // ── Navigation ──
+  {
+    "key": "j",
+    "command": "list.focusDown",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "k",
+    "command": "list.focusUp",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "h",
+    "command": "list.collapse",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "l",
+    "command": "list.expand",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "list.select",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "o",
+    "command": "list.select",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+
+  // ── File Operations ──
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "shift+a",
+    "command": "explorer.newFolder",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "y",
+    "command": "filesExplorer.copy",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "x",
+    "command": "filesExplorer.cut",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "c",
+    "command": "filesExplorer.copy",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+
+  // ── Open Modes ──
+  {
+    "key": "v",
+    "command": "explorer.openToSide",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "s",
+    "command": "runCommands",
+    "args": {
+      "commands": ["workbench.action.splitEditorDown", "explorer.openAndPassFocus"]
+    },
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+
+  // ── Quick Actions ──
+  {
+    "key": "/",
+    "command": "list.find",
+    "when": "listFocus && listSupportsFind && !inputFocus"
+  },
+  {
+    "key": "g g",
+    "command": "list.focusFirst",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "shift+g",
+    "command": "list.focusLast",
+    "when": "listFocus && !inputFocus"
+  },
+
+  // ── Back to Editor ──
+  {
+    "key": "escape",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "sideBarFocus"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🖥️ TERMINAL KEYBINDINGS
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "key": "ctrl+`",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "ctrl+shift+`",
+    "command": "workbench.action.terminal.new"
+  },
+  {
+    "key": "ctrl+shift+n",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+w",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+pagedown",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+pageup",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus"
+  },
+
+  // ── Quick Terminal Focus Toggle ──
+  {
+    "key": "ctrl+;",
+    "command": "workbench.action.terminal.focus",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "ctrl+;",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+
+  // ── Terminal Splits (Vim-style) ──
+  {
+    "key": "ctrl+shift+s",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+h",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+l",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus"
+  },
+
+  // ── Terminal Resize ──
+  {
+    "key": "ctrl+shift+alt+left",
+    "command": "workbench.action.terminal.resizePaneLeft",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+alt+right",
+    "command": "workbench.action.terminal.resizePaneRight",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+alt+up",
+    "command": "workbench.action.terminal.resizePaneUp",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+alt+down",
+    "command": "workbench.action.terminal.resizePaneDown",
+    "when": "terminalFocus"
+  },
+
+  // ── Terminal Scroll (Vim-style) ──
+  {
+    "key": "ctrl+shift+k",
+    "command": "workbench.action.terminal.scrollUp",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+j",
+    "command": "workbench.action.terminal.scrollDown",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+u",
+    "command": "workbench.action.terminal.scrollUpPage",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+d",
+    "command": "workbench.action.terminal.scrollDownPage",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "workbench.action.terminal.scrollToTop",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "shift+g",
+    "command": "workbench.action.terminal.scrollToBottom",
+    "when": "terminalFocus && !terminalTextSelected"
+  },
+
+  // ── Terminal Quick Access (Alt+Number) ──
+  {
+    "key": "alt+1",
+    "command": "workbench.action.terminal.focusAtIndex1",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+2",
+    "command": "workbench.action.terminal.focusAtIndex2",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+3",
+    "command": "workbench.action.terminal.focusAtIndex3",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+4",
+    "command": "workbench.action.terminal.focusAtIndex4",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+5",
+    "command": "workbench.action.terminal.focusAtIndex5",
+    "when": "terminalFocus"
+  },
+
+  // ── Send to Terminal (from Editor) ──
+  {
+    "key": "ctrl+enter",
+    "command": "workbench.action.terminal.runSelectedText",
+    "when": "editorTextFocus && editorHasSelection"
+  },
+  {
+    "key": "ctrl+shift+enter",
+    "command": "workbench.action.terminal.runActiveFile",
+    "when": "editorTextFocus"
+  },
+
+  // ── Clear Terminal ──
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.terminal.clear",
+    "when": "terminalFocus"
+  },
+
+  // ── Maximize Terminal Panel ──
+  {
+    "key": "ctrl+shift+m",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "terminalFocus"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🤖 GITHUB COPILOT KEYBINDINGS (Vim-Friendly)
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  // ── Accept Suggestions ──
+  {
+    "key": "ctrl+y",
+    "command": "editor.action.inlineSuggest.commit",
+    "when": "inlineSuggestionVisible && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "tab",
+    "command": "editor.action.inlineSuggest.commit",
+    "when": "inlineSuggestionVisible && editorTextFocus && !editorReadonly && vim.mode == 'Insert'"
+  },
+
+  // ── Accept Word by Word ──
+  {
+    "key": "ctrl+right",
+    "command": "editor.action.inlineSuggest.acceptNextWord",
+    "when": "inlineSuggestionVisible && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+.",
+    "command": "editor.action.inlineSuggest.acceptNextWord",
+    "when": "inlineSuggestionVisible && editorTextFocus && !editorReadonly"
+  },
+
+  // ── Accept Line by Line ──
+  {
+    "key": "ctrl+shift+right",
+    "command": "editor.action.inlineSuggest.acceptNextLine",
+    "when": "inlineSuggestionVisible && editorTextFocus && !editorReadonly"
+  },
+
+  // ── Navigate Suggestions ──
+  {
+    "key": "alt+]",
+    "command": "editor.action.inlineSuggest.showNext",
+    "when": "inlineSuggestionVisible && editorTextFocus"
+  },
+  {
+    "key": "alt+[",
+    "command": "editor.action.inlineSuggest.showPrevious",
+    "when": "inlineSuggestionVisible && editorTextFocus"
+  },
+
+  // ── Trigger/Dismiss ──
+  {
+    "key": "alt+\\",
+    "command": "editor.action.inlineSuggest.trigger",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "escape",
+    "command": "editor.action.inlineSuggest.hide",
+    "when": "inlineSuggestionVisible && editorTextFocus"
+  },
+
+  // ── Copilot Chat ──
+  {
+    "key": "ctrl+shift+i",
+    "command": "workbench.action.chat.open"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "inlineChat.start",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+alt+i",
+    "command": "workbench.action.chat.openEditSession"
+  },
+
+  // ── Quick Chat (No sidebar) ──
+  {
+    "key": "ctrl+shift+c",
+    "command": "workbench.action.quickchat.toggle"
+  },
+
+  // ── Copilot Panel ──
+  {
+    "key": "ctrl+alt+c",
+    "command": "github.copilot.openCompletionPanel",
+    "when": "editorTextFocus"
+  },
+
+  // ── Explain/Fix with Copilot ──
+  {
+    "key": "ctrl+alt+e",
+    "command": "github.copilot.interactiveEditor.explain",
+    "when": "editorHasSelection && editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+f",
+    "command": "github.copilot.interactiveEditor.fix",
+    "when": "editorTextFocus"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🔍 QUICK OPEN & COMMAND PALETTE
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "ctrl+shift+p",
+    "command": "workbench.action.showCommands"
+  },
+  {
+    "key": "ctrl+shift+o",
+    "command": "workbench.action.gotoSymbol"
+  },
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.showAllSymbols"
+  },
+  {
+    "key": "ctrl+g",
+    "command": "workbench.action.gotoLine"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 📝 EDITOR ACTIONS
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  // ── Move Lines (Alt+J/K as alternative to Alt+Up/Down) ──
+  {
+    "key": "alt+j",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+k",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+
+  // ── Duplicate Lines ──
+  {
+    "key": "alt+shift+j",
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+shift+k",
+    "command": "editor.action.copyLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+
+  // ── Delete Line (Ctrl+Shift+K) ──
+  {
+    "key": "ctrl+shift+d",
+    "command": "editor.action.deleteLines",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+
+  // ── Comment Toggle ──
+  {
+    "key": "ctrl+/",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+/",
+    "command": "editor.action.blockComment",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🔀 SPLIT MANAGEMENT
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "key": "ctrl+\\",
+    "command": "workbench.action.splitEditor"
+  },
+  {
+    "key": "ctrl+shift+\\",
+    "command": "workbench.action.splitEditorDown"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "ctrl+shift+w",
+    "command": "workbench.action.closeAllEditors"
+  },
+
+  // ── Move Editor to Group ──
+  {
+    "key": "ctrl+alt+left",
+    "command": "workbench.action.moveEditorToLeftGroup"
+  },
+  {
+    "key": "ctrl+alt+right",
+    "command": "workbench.action.moveEditorToRightGroup"
+  },
+  {
+    "key": "ctrl+alt+up",
+    "command": "workbench.action.moveEditorToAboveGroup"
+  },
+  {
+    "key": "ctrl+alt+down",
+    "command": "workbench.action.moveEditorToBelowGroup"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🎛️ SIDEBAR & PANEL TOGGLES
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "key": "ctrl+b",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "ctrl+shift+b",
+    "command": "workbench.action.toggleAuxiliaryBar"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.togglePanel",
+    "when": "!editorTextFocus"
+  },
+
+  // ── Focus Specific Views ──
+  {
+    "key": "ctrl+shift+e",
+    "command": "workbench.view.explorer"
+  },
+  {
+    "key": "ctrl+shift+f",
+    "command": "workbench.view.search"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "workbench.view.scm"
+  },
+  {
+    "key": "ctrl+shift+d",
+    "command": "workbench.view.debug"
+  },
+  {
+    "key": "ctrl+shift+x",
+    "command": "workbench.view.extensions"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🐛 DEBUG KEYBINDINGS
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "key": "f5",
+    "command": "workbench.action.debug.start",
+    "when": "!inDebugMode"
+  },
+  {
+    "key": "f5",
+    "command": "workbench.action.debug.continue",
+    "when": "inDebugMode"
+  },
+  {
+    "key": "shift+f5",
+    "command": "workbench.action.debug.stop"
+  },
+  {
+    "key": "ctrl+shift+f5",
+    "command": "workbench.action.debug.restart"
+  },
+  {
+    "key": "f9",
+    "command": "editor.debug.action.toggleBreakpoint"
+  },
+  {
+    "key": "f10",
+    "command": "workbench.action.debug.stepOver"
+  },
+  {
+    "key": "f11",
+    "command": "workbench.action.debug.stepInto"
+  },
+  {
+    "key": "shift+f11",
+    "command": "workbench.action.debug.stepOut"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🔎 FIND & REPLACE
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "key": "ctrl+f",
+    "command": "actions.find",
+    "when": "editorFocus || editorIsOpen"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "editor.action.startFindReplaceAction",
+    "when": "editorFocus && vim.mode == 'Insert'"
+  },
+  {
+    "key": "ctrl+shift+h",
+    "command": "workbench.action.replaceInFiles"
+  },
+  {
+    "key": "f3",
+    "command": "editor.action.nextMatchFindAction",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+f3",
+    "command": "editor.action.previousMatchFindAction",
+    "when": "editorFocus"
+  },
+
+  // ── Multi-cursor ──
+  {
+    "key": "ctrl+d",
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+shift+l",
+    "command": "editor.action.selectHighlights",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+click",
+    "command": "editor.action.insertCursorAtEndOfEachLineSelected",
+    "when": "editorTextFocus"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // ⚡ INTELLISENSE & CODE ACTIONS
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "key": "ctrl+space",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+space",
+    "command": "editor.action.triggerParameterHints",
+    "when": "editorHasSignatureHelpProvider && editorTextFocus"
+  },
+  {
+    "key": "ctrl+.",
+    "command": "editor.action.quickFix",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "f2",
+    "command": "editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "f12",
+    "command": "editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus"
+  },
+  {
+    "key": "alt+f12",
+    "command": "editor.action.peekDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus"
+  },
+  {
+    "key": "shift+f12",
+    "command": "editor.action.goToReferences",
+    "when": "editorHasReferenceProvider && editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+i",
+    "command": "editor.action.formatDocument",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 📋 QUICK INPUT NAVIGATION (Vim-style)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "key": "ctrl+j",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🎯 HARPOON EXTENSION (if installed)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "key": "ctrl+alt+a",
+    "command": "vscode-harpoon.addEditor"
+  },
+  {
+    "key": "ctrl+alt+e",
+    "command": "vscode-harpoon.editEditors"
+  },
+  {
+    "key": "ctrl+alt+p",
+    "command": "vscode-harpoon.editorQuickPick"
+  },
+  {
+    "key": "alt+shift+1",
+    "command": "vscode-harpoon.gotoEditor1"
+  },
+  {
+    "key": "alt+shift+2",
+    "command": "vscode-harpoon.gotoEditor2"
+  },
+  {
+    "key": "alt+shift+3",
+    "command": "vscode-harpoon.gotoEditor3"
+  },
+  {
+    "key": "alt+shift+4",
+    "command": "vscode-harpoon.gotoEditor4"
+  },
+  {
+    "key": "alt+shift+5",
+    "command": "vscode-harpoon.gotoEditor5"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🧹 ZEN MODE & FOCUS
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "key": "ctrl+k z",
+    "command": "workbench.action.toggleZenMode"
+  },
+  {
+    "key": "ctrl+k ctrl+z",
+    "command": "workbench.action.toggleZenMode"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🔧 MISC UTILITIES
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "key": "ctrl+shift+c",
+    "command": "workbench.action.terminal.openNativeConsole"
+  },
+  {
+    "key": "ctrl+k ctrl+s",
+    "command": "workbench.action.openGlobalKeybindings"
+  },
+  {
+    "key": "ctrl+,",
+    "command": "workbench.action.openSettings"
+  },
+  {
+    "key": "ctrl+k ctrl+t",
+    "command": "workbench.action.selectTheme"
+  },
+
+  // ── Reload Window ──
+  {
+    "key": "ctrl+alt+r",
+    "command": "workbench.action.reloadWindow"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🔄 GIT KEYBINDINGS
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "key": "ctrl+shift+g g",
+    "command": "workbench.view.scm"
+  },
+  {
+    "key": "ctrl+alt+g",
+    "command": "git.openChange",
+    "when": "editorTextFocus"
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 👤 USER'S ORIGINAL KEYBINDINGS (Preserved from Original-starting-settings)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "key": "alt+q",
+    "command": "workbench.panel.chat",
+    "when": "workbench.panel.chat.view.copilot.active"
+  },
+  {
+    "key": "shift+alt+e",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "panelAlignment == 'center' || panelPosition != 'bottom' && panelPosition != 'top'"
+  },
+  {
+    "key": "shift+alt+d",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "shift+alt+2",
+    "command": "workbench.action.focusActiveEditorGroup"
+  },
+  {
+    "key": "alt+w",
+    "command": "workbench.action.terminal.focusHover",
+    "when": "terminalHasBeenCreated || terminalIsOpen || terminalProcessSupported"
+  },
+  {
+    "key": "alt+a",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+  {
+    "key": "ctrl+k ctrl+shift+f",
+    "command": "editor.action.formatSelection",
+    "when": "editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+k ctrl+f",
+    "command": "workbench.action.quickTextSearch"
+  },
+  {
+    "key": "ctrl+shift+q",
+    "command": "workbench.action.quickchat.toggle",
+    "when": "chatIsEnabled"
+  },
+  {
+    "key": "ctrl+alt+z",
+    "command": "workbench.action.toggleZenMode",
+    "when": "!isAuxiliaryWindowFocusedContext"
+  },
+  {
+    "key": "ctrl+alt+z",
+    "command": "workbench.action.exitZenMode",
+    "when": "inZenMode"
+  },
+  {
+    "key": "alt+v",
+    "command": "toggleVim"
+  }
+]
