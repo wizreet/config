@@ -10,23 +10,23 @@
   // ═══════════════════════════════════════════════════════════════════════════
   {
     "key": "ctrl+h",
-    "command": "workbench.action.focusLeftGroup",
-    "when": "editorTextFocus && vim.mode == 'Normal'"
+    "command": "workbench.action.navigateLeft"
+    // "when": "editorTextFocus && vim.mode == 'Normal'"
   },
   {
     "key": "ctrl+l",
-    "command": "workbench.action.focusRightGroup",
-    "when": "editorTextFocus && vim.mode == 'Normal'"
+    "command": "workbench.action.navigateRight"
+    // "when": "editorTextFocus && vim.mode == 'Normal'"
   },
   {
     "key": "ctrl+k",
-    "command": "workbench.action.focusAboveGroup",
-    "when": "editorTextFocus && vim.mode == 'Normal'"
+    "command": "workbench.action.navigateUp"
+    // "when": "editorTextFocus && vim.mode == 'Normal'"
   },
   {
     "key": "ctrl+j",
-    "command": "workbench.action.focusBelowGroup",
-    "when": "editorTextFocus && vim.mode == 'Normal'"
+    "command": "workbench.action.navigateDown"
+    // "when": "editorTextFocus && vim.mode == 'Normal'"
   },
 
   // ── Navigate from Terminal ──
@@ -37,7 +37,7 @@
   },
   {
     "key": "ctrl+l",
-    "command": "workbench.action.focusRightGroup",
+    "command": "workbench.action.navigateRight",
     "when": "terminalFocus"
   },
   {
@@ -58,12 +58,12 @@
     "when": "sideBarFocus"
   },
 
-  // ── Toggle Hidden Files in Explorer ──
-  {
-    "key": "ctrl+h",
-    "command": "workbench.files.action.toggleExcludedFiles",
-    "when": "filesExplorerFocus"
-  },
+  // // ── Toggle Hidden Files in Explorer ──
+  // {
+  //   "key": "ctrl+h",
+  //   "command": "workbench.files.action.toggleExcludedFiles",
+  //   "when": "filesExplorerFocus"
+  // },
 
   // ═══════════════════════════════════════════════════════════════════════════
   // 📐 VIEW RESIZING (Ctrl+Shift + Arrows)
@@ -277,11 +277,11 @@
   },
 
   // ── Back to Editor ──
-  {
-    "key": "escape",
-    "command": "workbench.action.focusActiveEditorGroup",
-    "when": "sideBarFocus"
-  },
+  // {
+  //   "key": "escape",
+  //   "command": "workbench.action.focusActiveEditorGroup",
+  //   "when": "sideBarFocus"
+  // },
 
   // ═══════════════════════════════════════════════════════════════════════════
   // 🖥️ TERMINAL KEYBINDINGS
@@ -382,16 +382,17 @@
     "command": "workbench.action.terminal.scrollUpPage",
     "when": "terminalFocus"
   },
-  {
-    "key": "ctrl+shift+d",
-    "command": "workbench.action.terminal.scrollDownPage",
-    "when": "terminalFocus"
-  },
-  {
-    "key": "ctrl+shift+g",
-    "command": "workbench.action.terminal.scrollToTop",
-    "when": "terminalFocus"
-  },
+  // conflicts with debug and run
+  // {
+  //   "key": "ctrl+shift+d",
+  //   "command": "workbench.action.terminal.scrollDownPage",
+  //   "when": "terminalFocus"
+  // },
+  // {
+  //   "key": "ctrl+shift+g",
+  //   "command": "workbench.action.terminal.scrollToTop",
+  //   "when": "terminalFocus"
+  // },
   {
     "key": "shift+g",
     "command": "workbench.action.terminal.scrollToBottom",
@@ -527,15 +528,8 @@
 
   // ── Quick Chat (No sidebar) ──
   {
-    "key": "ctrl+shift+c",
+    "key": "ctrl+shift+u",
     "command": "workbench.action.quickchat.toggle"
-  },
-
-  // ── Copilot Panel ──
-  {
-    "key": "ctrl+alt+c",
-    "command": "github.copilot.openCompletionPanel",
-    "when": "editorTextFocus"
   },
 
   // ── Explain/Fix with Copilot ──
@@ -543,11 +537,6 @@
     "key": "ctrl+alt+e",
     "command": "github.copilot.interactiveEditor.explain",
     "when": "editorHasSelection && editorTextFocus"
-  },
-  {
-    "key": "ctrl+alt+f",
-    "command": "github.copilot.interactiveEditor.fix",
-    "when": "editorTextFocus"
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -578,7 +567,7 @@
   // 📝 EDITOR ACTIONS
   // ═══════════════════════════════════════════════════════════════════════════
 
-  // ── Move Lines (Alt+J/K as alternative to Alt+Up/Down) ──
+  // ── Move Lines () ──
   {
     "key": "alt+j",
     "command": "editor.action.moveLinesDownAction",
@@ -898,14 +887,14 @@
   // ═══════════════════════════════════════════════════════════════════════════
   // 🧹 ZEN MODE & FOCUS
   // ═══════════════════════════════════════════════════════════════════════════
-  {
-    "key": "ctrl+k z",
-    "command": "workbench.action.toggleZenMode"
-  },
-  {
-    "key": "ctrl+k ctrl+z",
-    "command": "workbench.action.toggleZenMode"
-  },
+  // {
+  //   "key": "ctrl+k z",
+  //   "command": "workbench.action.toggleZenMode"
+  // },
+  // {
+  //   "key": "ctrl+k ctrl+z",
+  //   "command": "workbench.action.toggleZenMode"
+  // },
 
   // ═══════════════════════════════════════════════════════════════════════════
   // 🔧 MISC UTILITIES
@@ -914,18 +903,18 @@
     "key": "ctrl+shift+c",
     "command": "workbench.action.terminal.openNativeConsole"
   },
-  {
-    "key": "ctrl+k ctrl+s",
-    "command": "workbench.action.openGlobalKeybindings"
-  },
+  // {
+  //   "key": "ctrl+k ctrl+s",
+  //   "command": "workbench.action.openGlobalKeybindings"
+  // },
   {
     "key": "ctrl+,",
     "command": "workbench.action.openSettings"
   },
-  {
-    "key": "ctrl+k ctrl+t",
-    "command": "workbench.action.selectTheme"
-  },
+  // {
+  //   "key": "ctrl+k ctrl+t",
+  //   "command": "workbench.action.selectTheme"
+  // },
 
   // ── Reload Window ──
   {
@@ -977,13 +966,14 @@
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
   },
+  // {
+  //   "key": "ctrl+k ctrl+shift+f",
+  //   "command": "editor.action.formatSelection",
+  //   "when": "editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly"
+  // },
+
   {
-    "key": "ctrl+k ctrl+shift+f",
-    "command": "editor.action.formatSelection",
-    "when": "editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "ctrl+k ctrl+f",
+    "key": "ctrl+Alt+k",
     "command": "workbench.action.quickTextSearch"
   },
   {
@@ -1002,7 +992,7 @@
     "when": "inZenMode"
   },
   {
-    "key": "alt+v",
+    "key": "alt+f",
     "command": "toggleVim"
   }
 ]
